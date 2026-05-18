@@ -1,0 +1,18 @@
+{
+  "project_name": "heedless-game",
+  "repo_path": "/Users/uprootiny/heedless-game",
+  "git_remote": "https://github.com/uprootiny/heedless-game.git",
+  "git_branch": "main",
+  "generated_at": "2026-05-18T08:30:00Z",
+  "generator": "Claude Code (Opus 4.7), in conversation with uprootiny",
+  "session_source": "Claude Code session",
+  "session_locator": "/Users/uprootiny/.claude/projects/-Users-uprootiny/b55081b4-0c73-4187-8384-1b7d0581353c.jsonl",
+  "form": "choose-your-own-adventure decision tree, 7 scenarios (1 per manifesto principle)",
+  "stack": "ClojureScript + goog.dom (no React/Reagent), Closure :advanced",
+  "compiled_bundle": "public/main.js (~138 KB)",
+  "scoring": "per-choice :hygienic/+1, :neutral/0, :heedless/-1; aggregate maps to one of five diagnoses",
+  "sibling_projects": [
+    "heedless-manifesto (source manifesto)",
+    "heedless (landing page)"
+  ]
+}

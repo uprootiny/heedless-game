@@ -1,0 +1,421 @@
+/* -----------------------------------------------------------------------------
+   heedless-game — visual style
+   Same Manuscript palette as the manifesto and landing.
+   ----------------------------------------------------------------------------- */
+
+:root {
+  --paper:        #FBF8F1;
+  --paper-edge:   #F2EEDF;
+  --ink:          #2A2A2A;
+  --ink-faint:    #5C5752;
+  --ink-faintest: #968F86;
+  --hairline:     rgba(0, 0, 0, 0.10);
+  --accent:       #6B3F2A;
+  --accent-soft:  #9C7B5F;
+  --hygienic:     #4A7C3F;
+  --neutral:      #8A7A66;
+  --heedless:     #A23E2A;
+
+  --serif:  "Iowan Old Style", "Charter", "Crimson Pro", "Hoefler Text", Georgia, serif;
+  --sans:   -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", sans-serif;
+  --mono:   "JetBrains Mono", "SF Mono", Menlo, Monaco, Consolas, monospace;
+  --smcp:   "smcp", "kern", "liga", "onum";
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--paper-edge); }
+
+body {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  font-feature-settings: "kern", "liga", "onum";
+  hanging-punctuation: first allow-end;
+  text-rendering: geometricPrecision;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page {
+  width: 100%;
+  max-width: 38rem;
+  padding: 3rem 1.75rem 2rem;
+  flex: 1;
+}
+
+/* -- screen transitions ---------------------------------------------------- */
+
+.screen {
+  animation: fade-in 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* -- typography shared ----------------------------------------------------- */
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--ink-faintest);
+  margin: 0 0 1.4rem;
+}
+
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1.1;
+  font-weight: 500;
+  margin: 0 0 1.5rem;
+  color: var(--ink);
+  font-feature-settings: var(--smcp);
+  letter-spacing: -0.005em;
+}
+
+h2.scenario-title {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 500;
+  margin: 0 0 1.5rem;
+  color: var(--accent);
+}
+
+.lede {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  line-height: 1.6;
+  color: var(--ink-faint);
+  margin: 0 0 2rem;
+}
+
+.footer-line {
+  margin: 2.5rem 0 0;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--ink-faintest);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* -- intro ----------------------------------------------------------------- */
+
+.screen-intro {
+  text-align: center;
+  padding: 3rem 0 0;
+}
+.screen-intro .lede { max-width: 28rem; margin: 0 auto 2rem; }
+
+/* -- setup text ------------------------------------------------------------ */
+
+.scenario-setup {
+  font-family: var(--serif);
+  font-size: 1.04rem;
+  line-height: 1.65;
+  color: var(--ink);
+  margin: 0 0 2rem;
+  padding: 1.2rem 1.4rem;
+  background: var(--paper-edge);
+  border-left: 2px solid var(--accent-soft);
+  border-radius: 2px;
+}
+.scenario-setup p { margin: 0 0 1em; }
+.scenario-setup p:last-child { margin-bottom: 0; }
+.scenario-setup code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  background: rgba(0,0,0,0.05);
+  padding: 0.1em 0.35em;
+  border-radius: 2px;
+}
+.scenario-setup pre {
+  background: rgba(0,0,0,0.06);
+  padding: 0.8rem 1rem;
+  border-radius: 3px;
+  font-family: var(--mono);
+  font-size: 0.85em;
+  overflow-x: auto;
+  margin: 0.8em 0;
+  line-height: 1.5;
+}
+.scenario-setup pre code { background: none; padding: 0; }
+
+/* -- choices --------------------------------------------------------------- */
+
+.choices {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.choice-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  padding: 1rem 1.3rem;
+  cursor: pointer;
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 220ms ease,
+              box-shadow 220ms ease,
+              background 220ms ease;
+}
+.choice-btn:hover {
+  border-color: var(--accent-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+}
+.choice-btn:active { transform: translateY(0); }
+
+/* -- buttons --------------------------------------------------------------- */
+
+button {
+  font-family: var(--sans);
+  cursor: pointer;
+}
+
+.primary {
+  background: var(--accent);
+  color: var(--paper);
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.75em 1.7em;
+  border-radius: 999px;
+  transition: background 220ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.primary:hover {
+  background: var(--ink);
+  transform: translateY(-1px);
+}
+.cta-large {
+  font-size: 1rem;
+  padding: 0.85em 2em;
+}
+
+.ghost {
+  background: transparent;
+  color: var(--ink-faint);
+  border: 1px solid var(--hairline);
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  padding: 0.6em 1.3em;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+.ghost:hover { color: var(--accent); border-color: var(--accent-soft); }
+
+/* -- resolving (consequence) ---------------------------------------------- */
+
+.verdict {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  margin: 0 0 0.8rem;
+  display: inline-block;
+  padding: 0.35em 0.9em;
+  border-radius: 2px;
+}
+.verdict-hygienic { color: var(--hygienic); background: rgba(74, 124, 63, 0.10); }
+.verdict-neutral  { color: var(--neutral);  background: rgba(138, 122, 102, 0.10); }
+.verdict-heedless { color: var(--heedless); background: rgba(162, 62, 42, 0.10); }
+
+.your-choice {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  line-height: 1.5;
+  color: var(--ink-faint);
+  font-style: italic;
+  margin: 0 0 1.5rem;
+  padding: 0.8rem 1.2rem;
+  border-left: 2px solid var(--ink-faintest);
+}
+
+.scenario-result {
+  font-family: var(--serif);
+  font-size: 1.06rem;
+  line-height: 1.65;
+  color: var(--ink);
+  margin: 0 0 2.5rem;
+}
+.scenario-result p { margin: 0 0 1em; }
+.scenario-result p:last-child { margin-bottom: 0; }
+
+.screen-resolving { padding: 1rem 0 0; }
+.screen-resolving > .primary { margin-top: 0.5rem; }
+
+/* -- finished -------------------------------------------------------------- */
+
+.screen-finished { text-align: center; }
+
+.diagnosis-title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--accent);
+  margin: 0 0 1.5rem;
+  font-style: italic;
+}
+
+.diagnosis-body {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: var(--ink);
+  max-width: 32rem;
+  margin: 0 auto 3rem;
+  text-align: left;
+}
+
+.summary {
+  text-align: left;
+  margin: 3rem 0 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--hairline);
+}
+.summary-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--ink-faintest);
+  margin: 0 0 1rem;
+}
+.summary-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.summary-row {
+  display: grid;
+  grid-template-columns: 1.5rem 2rem 1fr;
+  gap: 0.6rem;
+  align-items: baseline;
+  padding: 0.6rem 0;
+  border-bottom: 1px dotted var(--hairline);
+  font-family: var(--serif);
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+.summary-row:last-child { border-bottom: none; }
+.summary-sym {
+  font-family: var(--mono);
+  font-weight: 600;
+  text-align: center;
+}
+.summary-numeral {
+  font-feature-settings: var(--smcp);
+  letter-spacing: 0.1em;
+  color: var(--ink-faintest);
+  font-size: 0.85rem;
+}
+.summary-title { color: var(--ink); }
+.summary-hygienic .summary-sym { color: var(--hygienic); }
+.summary-neutral  .summary-sym { color: var(--neutral); }
+.summary-heedless .summary-sym { color: var(--heedless); }
+
+.end-actions {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin: 2rem 0 0;
+  flex-wrap: wrap;
+}
+
+/* -- footer ---------------------------------------------------------------- */
+
+.page-footer {
+  width: 100%;
+  max-width: 38rem;
+  margin: 3rem auto 2rem;
+  padding: 2rem 1.75rem 0;
+  border-top: 1px solid var(--hairline);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+  line-height: 1.5;
+}
+.provenance-line {
+  margin: 0 0 1rem;
+  font-weight: 500;
+  color: var(--ink);
+  font-size: 0.82rem;
+}
+.provenance-data {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4em 1em;
+  margin: 0;
+}
+.provenance-data dt {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faintest);
+  font-size: 0.7rem;
+  align-self: center;
+}
+.provenance-data dd {
+  margin: 0;
+  font-feature-settings: "tnum";
+}
+.page-footer a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--accent);
+}
+.page-footer a:hover { border-bottom-style: solid; }
+
+/* -- narrow ---------------------------------------------------------------- */
+
+@media (max-width: 30rem) {
+  body { font-size: 16px; }
+  .page { padding: 2rem 1.1rem 1.5rem; }
+  .choice-btn { font-size: 0.98rem; padding: 0.85rem 1rem; }
+  .end-actions { flex-direction: column; align-items: stretch; }
+  .end-actions .ghost { text-align: center; }
+}
+
+/* -- dark ------------------------------------------------------------------ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:        #14181E;
+    --paper-edge:   #0B0E13;
+    --ink:          #E6E1D8;
+    --ink-faint:    #B4ADA2;
+    --ink-faintest: #6B665E;
+    --hairline:     rgba(255, 255, 255, 0.10);
+    --accent:       #D4A582;
+    --accent-soft:  #B58A66;
+    --hygienic:     #8EBF80;
+    --neutral:      #B8A88E;
+    --heedless:     #E89788;
+  }
+  .verdict-hygienic { background: rgba(142, 191, 128, 0.10); }
+  .verdict-neutral  { background: rgba(184, 168, 142, 0.10); }
+  .verdict-heedless { background: rgba(232, 151, 136, 0.10); }
+  .scenario-setup code { background: rgba(255,255,255,0.08); }
+  .scenario-setup pre  { background: rgba(255,255,255,0.06); }
+  .primary { color: #14181E; }
+}
