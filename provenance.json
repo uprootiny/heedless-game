@@ -9,7 +9,7 @@
   "session_locator": "/Users/uprootiny/.claude/projects/-Users-uprootiny/b55081b4-0c73-4187-8384-1b7d0581353c.jsonl",
   "form": "choose-your-own-adventure decision tree, 7 scenarios (1 per manifesto principle)",
   "stack": "ClojureScript + goog.dom (no React/Reagent), Closure :advanced",
-  "compiled_bundle": "public/main.js (~138 KB)",
+  "compiled_bundle": "docs/main.js (~138 KB)",
   "scoring": "per-choice :hygienic/+1, :neutral/0, :heedless/-1; aggregate maps to one of five diagnoses",
   "sibling_projects": [
     "heedless-manifesto (source manifesto)",

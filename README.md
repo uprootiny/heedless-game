@@ -19,11 +19,11 @@ The principles are not revealed until the end. The point is to play the moment, 
 ## Build
 
 ```sh
-clojure -M:build      # advanced-optimized compile to public/main.js
+clojure -M:build      # advanced-optimized compile to docs/main.js
 clojure -M:dev        # unoptimized dev build with source maps
 ```
 
-The compiled `public/main.js` is committed so GitHub Pages can serve the site without a build step.
+The compiled `docs/main.js` is committed so GitHub Pages can serve the site without a build step.
 
 ## Sibling projects
 

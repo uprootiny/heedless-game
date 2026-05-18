@@ -6,16 +6,16 @@
  {:build
   {:main-opts ["-m" "cljs.main"
                "--target"          "browser"
-               "--output-dir"      "public/cljs-out"
-               "--output-to"       "public/main.js"
+               "--output-dir"      "docs/cljs-out"
+               "--output-to"       "docs/main.js"
                "--optimizations"   "advanced"
                "--compile"         "heedless-game.core"]}
 
   :dev
   {:main-opts ["-m" "cljs.main"
                "--target"          "browser"
-               "--output-dir"      "public/cljs-out"
-               "--output-to"       "public/main.js"
+               "--output-dir"      "docs/cljs-out"
+               "--output-to"       "docs/main.js"
                "--optimizations"   "none"
                "--source-map"
                "--compile"         "heedless-game.core"]}}}

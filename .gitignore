@@ -1,4 +1,4 @@
 .DS_Store
 .cpcache/
 .nrepl-port
-public/cljs-out/
+docs/cljs-out/
